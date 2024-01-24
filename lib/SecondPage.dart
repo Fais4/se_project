@@ -1,4 +1,5 @@
 
+
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
@@ -22,9 +23,10 @@ class DynamicBlueBackgroundLoginScreen extends StatefulWidget {
 }
 
 class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackgroundLoginScreen> {
+  // Dynamic background color
   Color _backgroundColor = const Color(0xff003366);
   final Random _random = Random();
-
+  // List of blue shades for background color variation
   List<Color> blueShades = [
     const Color(0xff0F4D92),
     const Color.fromARGB(255, 37, 53, 140),
@@ -35,6 +37,7 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
   @override
   void initState() {
     super.initState();
+    // Periodically change the background color
     Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       setState(() {
         _backgroundColor = blueShades[_random.nextInt(blueShades.length)];
@@ -52,8 +55,9 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(height: 40),
-            Row(
+            Container(height: 40),  // Top margin
+            // Logo and user-related buttons
+            Row(      
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -61,7 +65,8 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(width: 10),
+                    Container(width: 10), // Left margin
+                    // User icon button
                     RawMaterialButton(
                       onPressed: () {},
                       elevation: 2,
@@ -70,7 +75,8 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
                       shape: CircleBorder(),
                       child: Icon(Icons.person_sharp, color: _backgroundColor, size: 40),
                     ),
-                    Container(height: 10),
+                    Container(height: 10), // Vertical space
+                    // Back arrow button
                     RawMaterialButton(
                       onPressed: () {},
                       elevation: 2,
@@ -82,6 +88,7 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
                   ],
                 ),
                 Container(width: 200),
+                // app logo
                 Image.asset("images/logo.png", height: 150),
               ],
             ),
@@ -90,6 +97,7 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                // Upload content button
                 Container(
                   height: 150,
                   width: 150,
@@ -106,6 +114,7 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
                     onPressed: () {},
                   ),
                 ),
+                // Set Grades button
                 Container(
                   height: 150,
                   width: 150,
@@ -124,6 +133,7 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
                 ),
               ],
             ),
+            // Bottom actions
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
@@ -136,7 +146,7 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
                         // Settings button
                       }),
                       _buildCustomButton(Icons.notifications, "message", () {
-                        // Notifications button
+                        // message button
                       }),
                       _buildCustomButton(Icons.help, "Help", () {
                         //  Help button
@@ -156,6 +166,7 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
     return Container(
       width: 85,
       height: 80,
+      // Button styling
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -168,13 +179,16 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
           ),
         ],
       ),
+      // TextButton for the button behavior
       child: TextButton(
         onPressed: onPressed as void Function(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Icon representation
             Icon(icon, color: _backgroundColor, size: 30),
             SizedBox(height: 4),
+            // Label text with the dynamic background color
             Text(label, style: TextStyle(color: _backgroundColor)),
           ],
         ),
