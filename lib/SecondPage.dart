@@ -116,7 +116,7 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.assignment, color: Color(0xff003366), size: 110),
-                        Text("Set Grades", style: TextStyle(color: Color(0xff003366))),
+                        Text("Set Grades", style: TextStyle(color: Color(0xff003366))), //set grades button
                       ],
                     ),
                     onPressed: () {},
@@ -182,4 +182,4 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
     );
   }
 }
-//now im in new branch guys
+
