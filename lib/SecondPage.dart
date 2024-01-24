@@ -128,14 +128,14 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  margin: EdgeInsets.only(bottom: 20),
+                  margin: EdgeInsets.only(bottom:20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       _buildCustomButton(Icons.settings, "Settings", () {
                         // Settings button
                       }),
-                      _buildCustomButton(Icons.notifications, "Notifications", () {
+                      _buildCustomButton(Icons.notifications, "message", () {
                         // Notifications button
                       }),
                       _buildCustomButton(Icons.help, "Help", () {
@@ -154,7 +154,7 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
 
   Widget _buildCustomButton(IconData icon, String label, Function onPressed) {
     return Container(
-      width: 80,
+      width: 85,
       height: 80,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -169,12 +169,12 @@ class _DynamicBlueBackgroundLoginScreenState extends State<DynamicBlueBackground
         ],
       ),
       child: TextButton(
-        onPressed: onPressed as void Function()?,
+        onPressed: onPressed as void Function(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon, color: _backgroundColor, size: 30),
-            SizedBox(height: 5),
+            SizedBox(height: 4),
             Text(label, style: TextStyle(color: _backgroundColor)),
           ],
         ),
