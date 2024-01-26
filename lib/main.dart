@@ -70,7 +70,7 @@ class _DynamicBlueBackgroundLoginScreenState
                           Container(
                             height: 200,
                           ),
-                          Image.asset("images/IMSIU_old_logo.png", height: 170),
+                          Image.asset("images/old_logo.png", height: 170),
                         ],
                       ),
                       // second row
