@@ -128,21 +128,17 @@ class LoginPage extends State<Login> {
                     onPressed: () async {
                       try {
                         final credential = await FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
-                          email: email.text,
-                          password: password.text,
-                        );
+                            .signInWithEmailAndPassword(
+                                email: email.text, password: password.text);
+                        Navigator.of(context).pushReplacementNamed("homepage");
                       } on FirebaseAuthException catch (e) {
-                        if (e.code == 'weak-password') {
-                          print('The password provided is too weak.');
-                        } else if (e.code == 'email-already-in-use') {
-                          print('The account already exists for that email.');
+                        if (e.code == 'user-not-found') {
+                          print('No user found for that email.');
+                        } else if (e.code == 'wrong-password') {
+                          print('Wrong password provided for that user.');
                         }
-                      } catch (e) {
-                        print(e);
                       }
                     },
-
                     child: const Text('Login',
                         style: TextStyle(
                             color: Color(0xff003366),
