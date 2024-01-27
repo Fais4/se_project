@@ -2,14 +2,13 @@
 
 import 'dart:async';
 import 'dart:math';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-
-void main() async{
-    WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(LoginApp());
 }
 
@@ -31,8 +30,8 @@ class Login extends StatefulWidget {
 }
 
 class LoginPage extends State<Login> {
-    TextEditingController email = TextEditingController();
-    TextEditingController password = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,6 +94,7 @@ class LoginPage extends State<Login> {
                       ),
                     ),
                     keyboardType: TextInputType.emailAddress,
+                    controller: email,
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
@@ -116,6 +116,7 @@ class LoginPage extends State<Login> {
                       ),
                     ),
                     obscureText: true,
+                    controller: password,
                   ),
                   const SizedBox(height: 40),
                   ElevatedButton(
@@ -124,8 +125,22 @@ class LoginPage extends State<Login> {
                       backgroundColor: const Color.fromARGB(255, 251, 250, 250),
                       padding: const EdgeInsets.symmetric(vertical: 15),
                     ),
-                    onPressed: () {
-                      // TODO: Implement login logic
+                    onPressed: () async {
+                      try {
+                        final credential = await FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                          email: email.text,
+                          password: password.text,
+                        );
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'weak-password') {
+                          print('The password provided is too weak.');
+                        } else if (e.code == 'email-already-in-use') {
+                          print('The account already exists for that email.');
+                        }
+                      } catch (e) {
+                        print(e);
+                      }
                     },
 
                     child: const Text('Login',

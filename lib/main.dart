@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,8 +19,9 @@ class MyApp extends StatelessWidget {
 }
 
 class DynamicBlueBackgroundLoginScreen extends StatefulWidget {
+  const DynamicBlueBackgroundLoginScreen({super.key});
   @override
-  _DynamicBlueBackgroundLoginScreenState createState() =>
+  State<DynamicBlueBackgroundLoginScreen> createState() =>
       _DynamicBlueBackgroundLoginScreenState();
 }
 
@@ -120,8 +122,10 @@ class _DynamicBlueBackgroundLoginScreenState
                                     )
                                   ],
                                 ),
-                                onPressed: () {
-                                  print("You have been loged out ");
+                                onPressed: () async {
+                                  await FirebaseAuth.instance.signOut();
+                                  Navigator.of(context).pushNamedAndRemoveUntil(
+                                      "login", (route) => false);
                                 }),
                           ),
                           Container(
