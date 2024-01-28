@@ -1,5 +1,8 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:newflutter3/main.dart';
+import 'package:newflutter3/meeting/screens/home_screen.dart';
 import 'package:newflutter3/meeting/screens/login_screen.dart';
 import 'package:newflutter3/meeting/utils/colors.dart';
 
@@ -18,6 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       routes: {
         '/login':(context) => const LoginScreen(),
+        '/home':(context) => const HomeScreen(),
       },
       home: const LoginScreen(), 
     );
