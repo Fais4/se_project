@@ -33,10 +33,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:FirebaseAuth.instance.currentUser == null ? Login() : DynamicBlueBackgroundLoginScreen() ,
-      routes: {"login": (context) => Login(),
-      "homepage": (context) => DynamicBlueBackgroundLoginScreen()}
-    );
+        debugShowCheckedModeBanner: false,
+        home: FirebaseAuth.instance.currentUser == null
+            ? Login()
+            : DynamicBlueBackgroundLoginScreen(),
+        routes: {
+          "login": (context) => Login(),
+          "homepage": (context) => DynamicBlueBackgroundLoginScreen()
+        }
+        );
   }
 }

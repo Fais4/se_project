@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -45,6 +46,15 @@ class _DynamicBlueBackgroundLoginScreenState
         _backgroundColor = blueShades[_random.nextInt(blueShades.length)];
       });
     });
+  }
+
+  void _launchGoogleMeet() async {
+    final Uri url = Uri.parse('https://zoom.us/signin#/login');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
@@ -218,7 +228,9 @@ class _DynamicBlueBackgroundLoginScreenState
                                     )
                                   ],
                                 ),
-                                onPressed: () {}),
+                                onPressed: () {
+                                  _launchGoogleMeet();
+                                }),
                           ),
                         ],
                       )

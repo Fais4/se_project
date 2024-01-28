@@ -5,7 +5,6 @@ import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:newflutter3/meeting/utils/utils.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -134,9 +133,11 @@ class LoginPage extends State<Login> {
                         Navigator.of(context).pushReplacementNamed("homepage");
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'user-not-found') {
-                          showSnackBar(context, e.message!);
-                        } else if (e.code == 'wrong-password') {
-                          showSnackBar(context, e.message!);
+                          if (e.code == 'user-not-found') {
+                            print('No user found for that email.');
+                          } else if (e.code == 'wrong-password') {
+                            print('Wrong password provided for that user.');
+                          }
                         }
                       }
                     },
