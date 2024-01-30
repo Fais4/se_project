@@ -10,19 +10,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DynamicBlueBackgroundLoginScreen(),
+      home: ContentMangementScreen(),
     );
   }
 }
 
-class DynamicBlueBackgroundLoginScreen extends StatefulWidget {
+class ContentMangementScreen extends StatefulWidget {
   @override
-  _DynamicBlueBackgroundLoginScreenState createState() =>
-      _DynamicBlueBackgroundLoginScreenState();
+  State<ContentMangementScreen> createState() => _ContentMangementScreenState();
 }
 
-class _DynamicBlueBackgroundLoginScreenState
-    extends State<DynamicBlueBackgroundLoginScreen> {
+class _ContentMangementScreenState extends State<ContentMangementScreen> {
   // Dynamic background color
   Color _backgroundColor = const Color(0xff003366);
   final Random _random = Random();
@@ -79,7 +77,9 @@ class _DynamicBlueBackgroundLoginScreenState
                     Container(height: 10), // Vertical space
                     // Back arrow button
                     RawMaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'homepage');
+                      },
                       elevation: 2,
                       fillColor: Colors.white,
                       padding: EdgeInsets.all(15),

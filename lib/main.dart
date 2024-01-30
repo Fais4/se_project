@@ -48,7 +48,7 @@ class _DynamicBlueBackgroundLoginScreenState
     });
   }
 
-  void _launchGoogleMeet() async {
+  void _launchZoomMeet() async {
     final Uri url = Uri.parse('https://zoom.us/signin#/login');
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
@@ -186,19 +186,21 @@ class _DynamicBlueBackgroundLoginScreenState
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
-                                      Icons.person_outline_rounded,
+                                      Icons.assignment_add,
                                       color: Color(0xff003366),
                                       size: 110,
                                     ),
                                     Text(
-                                      " Profile ",
+                                      " Contet Manegment ",
                                       style: TextStyle(
                                         color: Color(0xff003366),
                                       ),
                                     )
                                   ],
                                 ),
-                                onPressed: () {}),
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'content');
+                                }),
                           ),
                           Container(
                             height: 200,
@@ -229,7 +231,7 @@ class _DynamicBlueBackgroundLoginScreenState
                                   ],
                                 ),
                                 onPressed: () {
-                                  _launchGoogleMeet();
+                                  _launchZoomMeet();
                                 }),
                           ),
                         ],

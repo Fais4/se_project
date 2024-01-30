@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:newflutter3/SecondPage.dart';
 import 'package:newflutter3/auth/page1.dart';
 import 'package:newflutter3/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -39,8 +39,8 @@ class _MyAppState extends State<MyApp> {
             : DynamicBlueBackgroundLoginScreen(),
         routes: {
           "login": (context) => Login(),
-          "homepage": (context) => DynamicBlueBackgroundLoginScreen()
-        }
-        );
+          "homepage": (context) => DynamicBlueBackgroundLoginScreen(),
+          "content": (context) => ContentMangementScreen(),
+        });
   }
 }
