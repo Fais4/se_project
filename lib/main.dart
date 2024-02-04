@@ -154,12 +154,12 @@ class _DynamicBlueBackgroundLoginScreenState
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
-                                      Icons.upload,
+                                      Icons.format_list_bulleted_outlined,
                                       color: Color(0xff003366),
                                       size: 110,
                                     ),
                                     Text(
-                                      " Upload ",
+                                      " Content List ",
                                       style: TextStyle(
                                         color: Color(0xff003366),
                                       ),

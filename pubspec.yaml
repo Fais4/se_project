@@ -73,7 +73,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   assets:
-    - images/imamu.jpg
+    - images/imamu.png
     - images/logo.png
     - images/onboarding.jpg
   # An image asset can refer to one or more resolution-specific "variants", see

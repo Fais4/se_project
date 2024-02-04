@@ -39,7 +39,7 @@ class LoginPage extends State<Login> {
         // The top bar of the page.
         backgroundColor: const Color(0xff003366),
         title: const Center(
-          child: Text("Welcome",
+          child: Text("ClassMentor",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 44,
@@ -52,7 +52,7 @@ class LoginPage extends State<Login> {
         decoration: const BoxDecoration(
           image: DecorationImage(
               // The background image of the page
-              image: AssetImage("images/imamu.jpg"),
+              image: AssetImage("images/imamu.png"),
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(
                   Color.fromARGB(255, 168, 194, 200), BlendMode.darken)),
